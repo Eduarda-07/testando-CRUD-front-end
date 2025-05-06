@@ -40,28 +40,36 @@ header input{
     /* font-size: 1rem; */
 }
 
-header button{
+.button.show{
     height: 49px;
+    min-width: 100px;
     padding: 0 8px;
     background-color: red;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    display: block;
+}
+.button{
+    display: none;
+}
+
+
+main.card-show .container{
+    display: flex;
 }
 
 .container{
     padding-top: 32px;
-    display: flex;
+    display: none;
     gap: 32px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 
     /* quando tiver mais cards na horizontal esse comando quebra em linhas  */
     flex-wrap: wrap;
 
 }
-
-
 
 .card-contato{
     width: 250px ;
@@ -71,7 +79,8 @@ header button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8px;box-shadow: 2px 2px 8px #0003;
+    gap: 8px;
+    box-shadow: 2px 2px 8px #0003;
     border-bottom: 32px solid red;
 }
 
@@ -79,4 +88,63 @@ header button{
     width: 160px;
     border-radius: 50%;
     border: 4px solid red;
+}
+
+form{
+    width: 80%;
+  
+    margin: auto;
+    padding: 32px;
+    display: none;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+main.form-show form{
+    display: flex;
+}
+.preview{
+    /* background-color: blanchedalmond; */
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid red;
+    overflow: hidden;
+
+}
+.preview-label{
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+}
+.preview-input{
+    display: none;
+}
+.preview-image{
+    height: 100%;
+    width: 100%;
+}
+.input-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+}
+.input{
+    display: flex;
+    flex-direction: column;
+}
+.input-text{
+   height: 32px;
+   border: 1px solid red;
+   padding-left: 16px;
+   outline: none;
+}
+.button-container{
+    width: 100%;
+    display: flex;
+    padding-left: 40%;
+    gap: 32px;
 }

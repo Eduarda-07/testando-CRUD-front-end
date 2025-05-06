@@ -1,6 +1,6 @@
 'use strict'
 
-import { getContatos } from "./contatos.js"
+import { getContatos, postContato } from "./contatos.js"
 import { getContatosPorNome } from "./contatos.js"
 
 function criarCard(contatos){
@@ -33,6 +33,47 @@ async function carregarPesquisa(evento){
     }
 }
 
+function novoContato(){
+    document.querySelector('main').className = 'form-show'
+}
+
+function cancelar(){
+    document.querySelector('main').className = 'card-show'
+}
+
+function salvarContato(){
+    const form = document.querySelector('form')
+    if(form.reportValidity() == false){
+        return
+    }
+    const contato = {
+                    "nome": document.getElementById('nome').value,
+                    "celular": document.getElementById('celular').value,
+                    "foto": document.getElementById('foto').value,
+                    "email": document.getElementById('email').value,
+                    "endereco": document.getElementById('endereco').value,
+                    "cidade": document.getElementById('cidade').value
+                    }
+    postContato(contato)
+
+    if (postContato(contato)){
+        alert ('cadastrado com sucesso')
+        carregarCards()
+        cancelar()
+    }
+
+}
+   
+
 carregarCards()
 document.getElementById('nome-contato')
     .addEventListener('keydown', carregarPesquisa)
+
+document.getElementById('novo-contato')
+    .addEventListener('click', novoContato)
+
+document.getElementById('cancelar')
+    .addEventListener('click', cancelar)
+
+document.getElementById('salvar')
+    .addEventListener('click', salvarContato)
